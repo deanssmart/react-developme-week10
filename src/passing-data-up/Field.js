@@ -7,6 +7,7 @@ const Field = ({ label, name, type, value, handleChange }) => (
             className="form-control"
             id={ label }
             name={ name }
+            type={ type }
             value={ value }
             onChange={ handleChange }
         />

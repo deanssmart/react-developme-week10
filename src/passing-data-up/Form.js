@@ -5,7 +5,7 @@ class Form extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { name: "", email: "" };
+        this.state = {name: "", email: "", telephone: "", dob: "" };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -22,31 +22,28 @@ class Form extends Component {
         e.preventDefault();
         const { handleSubmit } = this.props;
 
-        this.setState({ name: "", email: "" });
+        this.setState({name: "", email: "", telephone: "", dob: "" });
 
         handleSubmit(this.state);
     }
 
 
     render() {
-        const { name, email } = this.state;
+        // const { label, name, type } = this.state;
+        const { fields } = this.props;
 
         return(
             <form onSubmit={ this.handleClick } className="container">
-                <Field 
-                    label={ 'Name' }
-                    name={ 'name' }
-                    type={ 'text' }
-                    value={ name }
-                    handleChange={ (e) => this.handleChange(e, 'name') } 
-                />
-                <Field 
-                    label={ 'email' }
-                    name={ 'email' }
-                    type={ 'email' }
-                    value={ email } 
-                    handleChange={ (e) => this.handleChange(e, 'email') }
-                />                
+                { fields.map((field, i) => (
+                    <Field 
+                        key={ i }
+                        label={ field.label }
+                        name={ field.name }
+                        type={ field.type }
+                        value={ this.state.field }
+                        handleChange={ (e) => this.handleChange(e, field.name) }
+                    />
+                ))}
                 <button className="btn btn-primary">Submit</button>
             </form>
         );
