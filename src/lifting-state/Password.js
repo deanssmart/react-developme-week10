@@ -2,8 +2,9 @@ import React from 'react';
 
 const Password = ({ label, value, handleChange, colour }) => (
     <div className="form-group">
-        <label className="lead">{ label }</label>
+        <label className="lead" htmlFor={ label }>{ label }</label>
         <input 
+            id={ label }
             onChange={ handleChange }
             value={ value }
             type="password"
