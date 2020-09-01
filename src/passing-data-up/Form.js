@@ -32,31 +32,20 @@ class Form extends Component {
     render() {
         const { name, email } = this.state;
 
-
         return(
-            <form className="form-group">
-                <label className="lead" htmlFor="name">Name</label>
-                <input 
-                    id="name"
-                    type="text"
-                    className="form-control"
-                    onChange={ this.handleName }
-                    value={ name }
-                />
-                <label className="lead" htmlFor="email">email</label>
-                <input 
-                    id="email"
-                    type="email"
-                    className="form-control"
-                    onChange={ this.handleEmail }
-                    value={ email }
-                /> 
-                <button
-                    className={ "btn btn-primary" }
-                    onClick={ this.handleClick }>
-                    Submit
-                </button>                               
-            </form> 
+            <form onSubmit={ this.handleClick } className="container">
+                <div className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <input id="name" className="form-control" onChange={ this.handleName } value={ name } />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="email">E-mail</label>
+                    <input id="email" className="form-control" onChange={ this.handleEmail } value={ email } />
+                </div>
+
+                <button className="btn btn-primary">Submit</button>
+            </form>
         );
     }
 }
