@@ -7,18 +7,16 @@ class Form extends Component {
 
         this.state = { name: "", email: "" };
 
-        this.handleName = this.handleName.bind(this);
-        this.handleEmail = this.handleEmail.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleName(e) {
-        this.setState({ name: e.currentTarget.value });
+    handleChange(e, field) {
+        let change = {}
+        change[field] = e.currentTarget.value;
+        this.setState(change);
     }
 
-    handleEmail(e) {
-        this.setState({ email: e.currentTarget.value });
-    }
 
     handleClick(e) {
         e.preventDefault();
@@ -35,8 +33,20 @@ class Form extends Component {
 
         return(
             <form onSubmit={ this.handleClick } className="container">
-                <Field label={ 'name' } name={ 'name' } type={ 'text' } value={ name } handleChange={ this.handleName } />
-                <Field label={ 'email' } name={ 'email' } type={ 'email' } value={ email } handleChange={ this.handleEmail } />                
+                <Field 
+                    label={ 'Name' }
+                    name={ 'name' }
+                    type={ 'text' }
+                    value={ name }
+                    handleChange={ (e) => this.handleChange(e, 'name') } 
+                />
+                <Field 
+                    label={ 'email' }
+                    name={ 'email' }
+                    type={ 'email' }
+                    value={ email } 
+                    handleChange={ (e) => this.handleChange(e, 'email') }
+                />                
                 <button className="btn btn-primary">Submit</button>
             </form>
         );
