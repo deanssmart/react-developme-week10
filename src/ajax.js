@@ -41,8 +41,12 @@ import axios from './axios';
 //     console.log(data.data);
 // });
 
-axios.get('/articles/45').then(({ data }) => {
-    console.log(data.data);
-}).catch(error => {
-    console.log("Not Found");
+// axios.get('/articles/45').then(({ data }) => {
+//     console.log(data.data);
+// }).catch(error => {
+//     console.log("Not Found");
+// });
+
+axios.get('/articles').then(({ data }) => {
+    console.log(data.data.map(item => item.title));
 });
