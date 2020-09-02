@@ -47,6 +47,42 @@ import axios from './axios';
 //     console.log("Not Found");
 // });
 
+// axios.get('/articles').then(({ data }) => {
+//     console.log(data.data.map(item => item.title));
+// });
+
+
 axios.get('/articles').then(({ data }) => {
-    console.log(data.data.map(item => item.title));
+    
+    let allTags = data.data.flatMap(item => item.tags);
+
+    let frequency = allTags.reduce((acc, curr) => {
+            if(!acc[curr]) {
+                acc[curr] = 0;
+            }
+                acc[curr] += 1;
+            
+                return(acc);
+    }, {});
+
+    console.table(frequency);       
 });
+
+
+// axios.get('tags').then(({ data }) => {
+//     data.data.map(item => {
+//         axios.get('/tags/'+item.id+'/articles').then(({ data }) => {
+//             console.log(data.data.length);
+//         });
+//     });
+// });
+
+// axios.get('tags').then(({ data }) => {
+//     data.data.map(item => {
+//         console.table(item.id);
+//         });
+//     });
+
+// axios.get('tags').then(({ data }) => {
+//     console.log(data.data);
+// });
