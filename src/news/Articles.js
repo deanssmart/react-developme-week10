@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../axios';
+import { Link } from "react-router-dom";
 
 class Articles extends Component {
     constructor(props) {
@@ -23,8 +24,17 @@ class Articles extends Component {
             <article className="container">
                 <ul className="list-group">
                     { articles.map(article => (
-                        <li key={ article.id } className="list-group-item text-primary">
-                            { article.title }
+                        <li key={ article.id } className="card">
+                            <Link to="/news" className="border-0 list-group-item list-group-item-action text-primary">
+                                <div className="d-flex w-100 justify-content-between">
+                                    <p>{ article.title }</p>
+                                    <div>
+                                        { article.tags.map(tags => (
+                                                <p className="badge badge-primary ml-2">{ tags }</p>
+                                        )) }   
+                                    </div>
+                                </div> 
+                            </Link>                         
                         </li>
                     )) }
                 </ul>
