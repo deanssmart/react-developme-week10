@@ -22,6 +22,13 @@ import axios from './axios';
 //     console.log(data.data.tags);
 // });
 
-axios.delete('/articles/44').then( () => {
-    console.log("Deleted");
+// axios.delete('/articles/44').then( () => {
+//     console.log("Deleted");
+// });
+
+axios.post('/articles/60/comments', {
+    email: "notafakeemail@realthing.com",
+    comment: "amazing comment"
+}).then(({ data }) => {
+    console.log(data.data.id);
 });
