@@ -12,6 +12,12 @@ import axios from './axios';
 //     console.log(data.data.id);
 // });
 
-axios.get('/articles/44').then(({ data }) => {
-    console.log(data.data);
+// axios.get('/articles/44').then(({ data }) => {
+//     console.log(data.data);
+// });
+
+axios.patch('/articles/44', {
+    tags: ["spoons", "science", "spoon truther"]
+}).then(({ data }) => {
+    console.log(data.data.tags);
 });
