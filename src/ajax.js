@@ -1,8 +1,8 @@
 import axios from './axios';
 
-axios.get('/articles').then(({ data }) => {
-    console.log(data.data);
-});
+// axios.get('/articles').then(({ data }) => {
+//     console.log(data.data);
+// });
 
 // axios.post('/articles', {
 //     title: "Here we go again",
@@ -33,6 +33,10 @@ axios.get('/articles').then(({ data }) => {
 //     console.log(data.data.id);
 // });
 
-axios.get('/articles/13/comments').then(({ data }) => {
+// axios.get('/articles/13/comments').then(({ data }) => {
+//     console.log(data.data);
+// });
+
+axios.get('tags').then(({ data }) => {
     console.log(data.data);
 });
