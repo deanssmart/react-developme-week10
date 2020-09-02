@@ -1,8 +1,8 @@
 import axios from './axios';
 
-// axios.get('/articles').then(({ data }) => {
-//     console.log(data.data);
-// });
+axios.get('/articles').then(({ data }) => {
+    console.log(data.data);
+});
 
 // axios.post('/articles', {
 //     title: "Here we go again",
@@ -26,9 +26,13 @@ import axios from './axios';
 //     console.log("Deleted");
 // });
 
-axios.post('/articles/60/comments', {
-    email: "notafakeemail@realthing.com",
-    comment: "amazing comment"
-}).then(({ data }) => {
-    console.log(data.data.id);
+// axios.post('/articles/60/comments', {
+//     email: "notafakeemail@realthing.com",
+//     comment: "amazing comment"
+// }).then(({ data }) => {
+//     console.log(data.data.id);
+// });
+
+axios.get('/articles/13/comments').then(({ data }) => {
+    console.log(data.data);
 });
