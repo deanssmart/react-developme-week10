@@ -24,12 +24,11 @@ class Form extends Component {
 
         this.setState({name: "", email: "", telephone: "", dob: "" });
 
-        handleSubmit(this.state);
+        handleSubmit({ ...this.state });
     }
 
 
     render() {
-        // const { label, name, type } = this.state;
         const { fields } = this.props;
 
         return(

@@ -23,7 +23,7 @@ class SignUp extends Component {
         const { minimumLength } = this.props
         const { inputPassword, inputConfirm } = this.state;
 
-        return inputPassword === inputConfirm && inputPassword.length > minimumLength && inputConfirm.length > minimumLength ? "" : "red";         
+        return inputPassword === inputConfirm && inputPassword.length > minimumLength ? "" : "red";         
     }
 
     render() {
