@@ -16,8 +16,12 @@ import axios from './axios';
 //     console.log(data.data);
 // });
 
-axios.patch('/articles/44', {
-    tags: ["spoons", "science", "spoon truther"]
-}).then(({ data }) => {
-    console.log(data.data.tags);
+// axios.patch('/articles/44', {
+//     tags: ["spoons", "science", "spoon truther"]
+// }).then(({ data }) => {
+//     console.log(data.data.tags);
+// });
+
+axios.delete('/articles/44').then( () => {
+    console.log("Deleted");
 });
