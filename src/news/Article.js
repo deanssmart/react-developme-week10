@@ -7,7 +7,7 @@ class Article extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { loaded: false, article: [] };
+        this.state = { loaded: false, article: {} };
         
     }
 
@@ -36,7 +36,7 @@ class Article extends Component {
                     </div>
                     <Tags tags={ article.tags } />
                 </article>
-                    <Comments id={ id } />
+                <Comments id={ id } />
             </>
         );
     }
