@@ -8,6 +8,8 @@ import SignUp from './lifting-state/SignUp';
 import Button from './passing-data-up/Button';
 import Form from './passing-data-up/Form';
 
+import Clicked from './hooks/Clicked';
+
 import Header from './news/Header';
 import Articles from './news/Articles';
 import Article from './news/Article';
@@ -20,7 +22,7 @@ const App = () => (
     <Header />
 
     <Switch>
-      <Route path='/challenges'>
+      <Route exact path='/challenges'>
         <Squares colour={ 'hotpink' } />
         <SignUp minimumLength={ 12 } />
         <Button handleUpdate={ console.log } />
@@ -33,6 +35,9 @@ const App = () => (
                 { label: "Date of Birth", name: "dob", type: "date" },
           ]}
         />
+      </Route>
+      <Route exact path='/hooks'>
+        <Clicked />
       </Route>
       <Route exact path='/news'>
           <Articles />
