@@ -9,6 +9,7 @@ import Button from './passing-data-up/Button';
 import Form from './passing-data-up/Form';
 
 import Clicked from './hooks/Clicked';
+import Square from './hooks/Square';
 
 import Header from './news/Header';
 import Articles from './news/Articles';
@@ -38,6 +39,7 @@ const App = () => (
       </Route>
       <Route exact path='/hooks'>
         <Clicked />
+        <Square colour="hotpink" />
       </Route>
       <Route exact path='/news'>
           <Articles />
