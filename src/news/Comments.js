@@ -23,15 +23,16 @@ class Comments extends Component {
         return !loaded ? <p>Loading...</p> : (
             <section className="container mt-4">
                 <h3>Comments</h3>
-                <ul className="list-group">
-                    { comments.map(comment => (
-                        <li key={ comment.id } className="list-group-item">
-                            <h5>{ comment.email }</h5>
-                            <p className="text-muted">{ comment.comment }</p>
-                        </li>
-                    )) }
-                </ul>                
-
+                    { comments.length === 0 ? <p>No Comments</p> : (
+                        <ul className="list-group">
+                            { comments.map(comment => (
+                                <li key={ comment.id } className="list-group-item">
+                                    <h5>{ comment.email }</h5>
+                                    <p className="text-muted">{ comment.comment }</p>
+                                </li>
+                            )) }
+                        </ul>      
+                    )} 
             </section>
         );
     }
