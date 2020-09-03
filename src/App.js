@@ -7,9 +7,12 @@ import Squares from './lifting-state/Squares';
 import SignUp from './lifting-state/SignUp';
 import Button from './passing-data-up/Button';
 import Form from './passing-data-up/Form';
-import Articles from './news/Articles';
-import Footer from './news/Footer';
+
 import Header from './news/Header';
+import Articles from './news/Articles';
+import Article from './news/Article';
+import Footer from './news/Footer';
+
 
 const App = () => (
   <Router>
@@ -28,9 +31,12 @@ const App = () => (
         ]}
       />
     </Route>
-    <Route path='/news'>
+    <Route exact path='/news'>
         <Articles />
     </Route>
+    <Route exact path="/news/:id" render={ ({ match }) => (
+        <Article id={ match.params.id } />
+    ) } />
     <Footer />
   </Router>
 );
