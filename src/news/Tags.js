@@ -2,8 +2,8 @@ import React from 'react';
 
 const Tags = ({ tags }) => (
     <span>
-        { tags.map(tag => (
-            <span className="badge badge-primary ml-2">{ tag }</span>
+        { tags.map((tag, i) => (
+            <span key={ i }className="badge badge-primary ml-2">{ tag }</span>
     )) }   
     </span>
 );
