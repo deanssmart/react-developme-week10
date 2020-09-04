@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Clicked = () => {
     const [clicked, setClicked] = useState(false);
 
-    const updateClicked = () => setClicked(!clicked);
+    const updateClicked = () => setClicked(true);
 
     return(
         <p onClick={ updateClicked }>
