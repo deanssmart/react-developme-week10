@@ -12,6 +12,7 @@ import Clicked from './hooks/Clicked';
 import Square from './hooks/Square';
 import ToggleText from './hooks/ToggleText';
 import Counter from './hooks/Counter';
+import StepCounter from './hooks/StepCounter';
 
 import Header from './news/Header';
 import Articles from './news/Articles';
@@ -44,6 +45,7 @@ const App = () => (
         <Square colour="hotpink" />
         <ToggleText initial="Hello" alternate="World" /> 
         <Counter initial={ 50 } max={ 100 } />
+        <StepCounter step={ 5 } max={ 100 } />
       </Route>
       <Route exact path='/news'>
           <Articles />
