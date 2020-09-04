@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const StepCounter = ({ step, max }) => {
-    const [counter, setCounter] = useState(StepCounter.defaultProps.initial);
+    const [counter, setCounter] = useState(0);
     
     const updateCounterPos = () => {
         if(counter + step <= max){
@@ -23,10 +23,6 @@ const StepCounter = ({ step, max }) => {
         </div>
     );
 
-}
-
-StepCounter.defaultProps = {
-    initial: 0
 }
 
 export default StepCounter;

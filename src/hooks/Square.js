@@ -4,7 +4,7 @@ const Square = ({ colour }) => {
     const [clicked, setClicked] = useState(false);
     const updateClicked = () => setClicked(!clicked);
 
-    const background = clicked ? colour : Square.defaultProps.colour; 
+    const background = clicked ? colour : "green"; 
 
     return(
         <div 
@@ -18,7 +18,7 @@ const Square = ({ colour }) => {
 }
 
 Square.defaultProps = {
-    colour: "green",
+    colour: "hotpink",
 };
 
 export default Square;
