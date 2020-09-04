@@ -3,28 +3,29 @@ import React, { useReducer } from 'react';
 //initial state
 let initialState = {
     counter: 0
-}
-
-//reducer functions
-const counterPos = (state, step, max) => {
-    const { counter } = state;
-
-    return counter + step <= max ? {...state, counter: counter + step} : state;     
 };
 
-const counterNeg = (state, step) => {
+//reducer functions
+const counterPos = (state, {step, max}) => {
     const { counter } = state;
+    const total = counter + step;
 
-    return counter - step >= 0 ? {...state, counter: counter - step} : state;
+    return total <= max ? {...state, counter: total} : state;     
+};
+
+const counterNeg = (state, {step}) => {
+    const { counter } = state;
+    const total = counter - step;
+
+    return total >= 0 ? {...state, counter: total} : state;
 };
 
 //reducer
 const reducer = (state, action) => {
-    const { type, step, max } = action;
 
-    switch (type) {
-        case "POSITIVE": return counterPos(state, step, max);
-        case "NEGATIVE": return counterNeg(state, step);
+    switch (action.type) {
+        case "POSITIVE": return counterPos(state, action);
+        case "NEGATIVE": return counterNeg(state, action);
         default: return state;
     }    
 };
