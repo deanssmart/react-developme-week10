@@ -7,19 +7,15 @@ let initialState = {
 
 //reducer functions
 const counterPos = (state, step, max) => {
-    if(state.counter + step <= max){
-        return {...state, counter: state.counter + step};
-    } else {
-        return state;
-    } 
+    const { counter } = state;
+
+    return counter + step <= max ? {...state, counter: counter + step} : state;     
 };
 
 const counterNeg = (state, step) => {
-    if(state.counter - step >= 0){
-        return {...state, counter: state.counter - step};
-    } else {
-        return state;
-    } 
+    const { counter } = state;
+
+    return counter - step >= 0 ? {...state, counter: counter - step} : state;
 };
 
 //reducer
@@ -40,8 +36,18 @@ export const StepCounter = ({ step, max }) => {
     return (
         <div className="card row">
             <p className="text-center">{ counter }</p>
-            <button className="btn btn-success" onClick={ () => dispatch({ type: "POSITIVE", step: step, max: max }) }>+</button>
-            <button className="btn btn-danger" onClick={ () => dispatch({ type: "NEGATIVE", step: step }) }>-</button>
+            <button 
+                className="btn btn-success"
+                onClick={ () => dispatch({ type: "POSITIVE", step: step, max: max }) }
+            >
+                +
+            </button>
+            <button 
+                className="btn btn-danger" 
+                onClick={ () => dispatch({ type: "NEGATIVE", step: step }) }
+            >
+                -
+            </button>
         </div>
     );
 
