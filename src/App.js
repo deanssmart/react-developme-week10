@@ -15,6 +15,7 @@ import Counter from './hooks/Counter';
 import StepCounter from './hooks/StepCounter';
 
 import {Clicked as ClickedReducer } from './reducers/Clicked';
+import {StepCounter as StepCounterReducer } from './reducers/StepCounter';
 
 import Header from './news/Header';
 import Articles from './news/Articles';
@@ -51,6 +52,7 @@ const App = () => (
       </Route>
       <Route exact path='/reducer'>
         <ClickedReducer />
+        <StepCounterReducer step={ 5 } max={ 100 } />
       </Route>
       <Route exact path='/news'>
           <Articles />
