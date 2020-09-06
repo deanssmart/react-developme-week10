@@ -4,13 +4,7 @@ import reducer from "./reducer";
 // initial state
 // put in some dummy content to start with
 const initialState = {
-  items: [{
-    task: "Do First Thing",
-    completed: false,
-  }, {
-    task: "Do Second Thing",
-    completed: true,
-  }],
+  items: []
 };
 
 // component
@@ -57,10 +51,10 @@ const List = () => {
               <li
                 key={ index }
                 className="list-group-item d-flex justify-content-between align-items-center"
-                onClick={ () => dispatch({ type: "MARK_COMPLETED", index: index }) }
               >
                 { /* strike-through for completed items */ }
                 <span
+                  onClick={ () => dispatch({ type: "MARK_COMPLETED", index: index }) }
                   className="flex-grow-1"
                   style={ {
                     cursor: "pointer",
