@@ -28,10 +28,19 @@ const List = () => {
   const handleInput = (e) => {
     setInput(e.currentTarget.value);
   };
+  
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      setInput("");
+      dispatch({ type: "NEW_ITEM", value: input });
+  }
 
   return (
     <div className="card">
-      <form className="card-header">
+      <form 
+        className="card-header"
+        onSubmit={ handleSubmit }
+      >
         { /* add task input */ }
         <input
           className="form-control"
