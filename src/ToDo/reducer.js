@@ -11,3 +11,19 @@ export const removeItem = (state, { index }) => {
         items: state.items.filter((item, i) => i !== index)
     };
 };
+
+export const updateItem = (state, { index, value }) => {
+
+    let items = [...state.items];
+
+    items[index] = {
+        ...state.items[index],
+        task: value
+    };
+
+    return {
+        ...state,
+        items: items
+    };
+  
+};
