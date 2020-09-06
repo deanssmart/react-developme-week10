@@ -13,7 +13,10 @@ const Footer = () => (
             </li> 
             <li className="nav-item">
                 <Link to="/reducer" className="nav-link">Reducer Challenges</Link>
-            </li>                                 
+            </li>       
+            <li className="nav-item">
+                <Link to="/todo" className="nav-link">ToDo List</Link>
+            </li>                                          
             <li className="nav-item">
                 <Link to="/news" className="nav-link">News</Link>
             </li>   

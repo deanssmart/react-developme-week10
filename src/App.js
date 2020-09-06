@@ -18,6 +18,8 @@ import {Clicked as ClickedReducer } from './reducers/Clicked';
 import {StepCounter as StepCounterReducer } from './reducers/StepCounter';
 import TempConverter from './reducers/TempConverter';
 
+import List from './ToDo/List';
+
 import Header from './news/Header';
 import Articles from './news/Articles';
 import Article from './news/Article';
@@ -55,6 +57,9 @@ const App = () => (
         <ClickedReducer />
         <StepCounterReducer step={ 5 } max={ 100 } />
         <TempConverter labelF={ "Fahrenheit"} nameF={ "fahrenheit" } labelC={ "Celsius"} nameC={ "celsius" } />
+      </Route>
+      <Route exact path='/todo'>
+        <List />
       </Route>
       <Route exact path='/news'>
           <Articles />
