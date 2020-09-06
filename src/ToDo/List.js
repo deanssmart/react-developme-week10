@@ -48,6 +48,7 @@ const List = () => {
               <li
                 key={ index }
                 className="list-group-item d-flex justify-content-between align-items-center"
+                onClick={ () => dispatch({ type: "MARK_COMPLETED", index: index }) }
               >
                 { /* strike-through for completed items */ }
                 <span
