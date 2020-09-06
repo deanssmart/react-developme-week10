@@ -1,12 +1,12 @@
 import React, { useReducer } from 'react';
 
 // initial state
-let initialState = {
+const initialState = {
     clicked: false
 };
 
 // reducer
-let reducer = (state, action) => {
+const reducer = (state, action) => {
     switch (action.type) {
         case "CLICKED": return {
             ...state,
@@ -22,7 +22,7 @@ export const Clicked = () => {
     const { clicked } = state;
 
     return(
-        <p onClick={ () => dispatch({ type: "CLICKED", }) }>
+        <p onClick={ () => dispatch({ type: "CLICKED" }) }>
             { clicked ? "Clicked" : "Not Clicked"}
         </p>
     );
