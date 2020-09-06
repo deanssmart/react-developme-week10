@@ -91,8 +91,69 @@ it('updates items', () => {
 
 it('completes items', () => {
     // Completing tests here
+    let many = {
+        items: [
+            { task: "Hello", completed: true },
+            { task: "Mum", completed: false },
+        ]
+    };
+    
+    // complete the item at index 1
+    let completed = completeItem(many, { index: 1 });
+    
+    // expected completed to be true
+    expect(completed.items[1]).toEqual({ task: "Mum", completed: true });
+
+    // check that it's not the same object being returned
+    expect(completed.items[1]).not.toBe(many.items[1]);    
+
+    // complete item at index 0
+    completed = completeItem(many, { index: 0 });
+
+    // should still be marked as completed
+    expect(completed.items[0]).toEqual({ task: "Hello", completed: true });    
+
 });
 
 it('reduces', () => {
     // Reducer tests here
+    // pass in a nonsense action
+    let newState = reducer(initialState, { type: "GOTTA_CATCH_EM_ALL" });
+
+    // get back initial state
+    expect(newState).toBe(initialState);    
+
+    // use the NEW_ITEM action, passing a value
+    newState = reducer(initialState, { type: "NEW_ITEM", value: "Hello" });
+
+    // make sure it's been added
+    expect(newState.items[0]).toEqual({ task: "Hello", completed: false });
+
+    // add some more items
+    newState = reducer(newState, { type: "NEW_ITEM", value: "Mum" });
+    newState = reducer(newState, { type: "NEW_ITEM", value: "How" });
+    newState = reducer(newState, { type: "NEW_ITEM", value: "Are" });
+    newState = reducer(newState, { type: "NEW_ITEM", value: "You" });
+
+    // check they've been added
+    expect(newState.items.length).toBe(5);
+
+    // remove item at index 2
+    newState = reducer(newState, { type: "REMOVE_ITEM", index: 2 });
+
+    // check index 3 has moved down to index 2
+    expect(newState.items[2]).toEqual({ task: "Are", completed: false });    
+
+    // update item at index 1
+    newState = reducer(newState, { type: "CHANGE_ITEM", index: 1, value: "Dad" });
+
+    // check it's been changed
+    expect(newState.items[1]).toEqual({ task: "Dad", completed: false });    
+
+    // mark index 1 as completed
+    newState = reducer(newState, { type: "MARK_COMPLETED", index: 1 });
+
+    // check it's been updated
+    expect(newState.items[1]).toEqual({ task: "Dad", completed: true });    
+    
 });
